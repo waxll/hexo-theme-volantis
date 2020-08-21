@@ -835,7 +835,7 @@ search:
 
 
 analytics:
-  busuanzi: #https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js
+  busuanzi: https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js
   leancloud:
     app_id: u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI
     app_key: jfHtEKVE24j0IVCGHbvuFClp
