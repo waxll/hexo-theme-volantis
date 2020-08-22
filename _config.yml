@@ -141,7 +141,7 @@ cover:
     home: true
     archive: false
     others: true # can be written in front-matter 'cover: true'
-  background: https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg
+  background: #https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg
   logo: #https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
   title: Waxll's Blog
   subtitle: 'love快马加鞭'
@@ -441,9 +441,7 @@ footer:
       url: https://github.com/waxll
     - icon: fas fa-headphones-alt
       url: https://music.163.com/#/user/home?id=300345527
-  analytics: >
-    <span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
-    <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
+  
   copyright: '[Copyright © 2019-2020 XieSenshi](https://waxll.ml)'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
@@ -519,7 +517,7 @@ plugins:
 
   # Slide Background
   backstretch:
-    enable: # true
+    enable: true
     js: https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js
     position: cover       # cover: sticky on the cover.   fixed: Fixed as background for the site.
     shuffle: true       # shuffle playlist
