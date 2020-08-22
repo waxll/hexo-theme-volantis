@@ -1,7 +1,7 @@
 <!-- required -->
 <%- js(theme.plugins.jquery) %>
 
-<%- partial('counter') %>
+
 <!-- optional -->
 <%- partial('cover') %>
 <% if (theme.search && theme.search.enable) { %>
@@ -14,6 +14,18 @@
 
 <% if (theme.plugins.instant_page) { %>
   <script async src="<%- theme.plugins.instant_page %>" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<% } %>
+
+<% if (theme.plugins.flying_pages) { %>
+<script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="<%- theme.plugins.flying_pages %>"></script>
 <% } %>
 
 <%- partial('../../_third-party/fancybox/script') %>
@@ -81,6 +93,9 @@
   <% } %>
 <% } %>
 
+<% if (theme.analytics && theme.analytics.leancloud && theme.analytics.leancloud.app_id) { %>
+  <%- partial('counter') %>
+<% } %>
 
 <!-- more -->
 <% if (config.import && config.import.script) { %>

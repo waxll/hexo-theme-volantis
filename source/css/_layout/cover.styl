@@ -1,7 +1,6 @@
 .l_cover
   min-height: $navbar-height
-  @media screen and (max-width: $device-mobile-m)
-    min-height: $navbar-height - $gap
+
 .cover-wrapper
   top: 0
   left: 0
@@ -13,7 +12,7 @@
   align-items: center
   align-self: center
   align-content: center
-  color: $color-site-inner
+  color: var(--color-site-inner)
   padding: 0 $gap
   disable-user-select()
   position: relative
@@ -96,8 +95,9 @@
     margin-top: $gap * 2
   .title
     font-family: $fontfamily-logo
-    font-size: $fontsize-large
+    font-size: $fontsize-large * 1.5
     line-height: 1.2
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .1)
   .subtitle
     font-size: $fontsize-meta
   .logo
@@ -146,7 +146,7 @@
       background: alpha($color-card, .6)
       backdrop-filter: blur(10px)
       border: none
-      color: $color-text
+      color: var(--color-text)
       &:hover
         background: alpha($color-card, .8)
       &:focus
@@ -163,16 +163,18 @@
   a
     flex: 1
     display: flex
+    font-weight: 600
     img
       display: block
       border-radius: 2px
-      margin: $gap * 0.5 $gap * 0.25
+      margin: $gap * 0.25
       min-width: 40px
       max-width: 44px
       @media screen and (max-width: $device-tablet)
         min-width: 36px
         max-width: 40px
       @media screen and (max-width: $device-mobile)
+        margin: 2px $gap * 0.25
         min-width: 32px
         max-width: 36px
       @media screen and (max-width: $device-mobile-m)
@@ -199,8 +201,8 @@
       p
         font-size: $fontsize-body
       &:hover, &.active, &:active
-        color: $color-site-inner
-        border-bottom: 2px solid $color-site-inner
+        color: var(--color-site-inner)
+        border-bottom: 2px solid var(--color-site-inner)
   &.dock .menu, &.featured .menu, &.focus .menu
     border-radius: $border-button + 2px
     .list-h a
@@ -214,7 +216,7 @@
       border-bottom: none
       text-align: center
       align-content: flex-end
-      color: alpha($color-site-inner, .85)
+      color: alpha($color-text, .7)
       font-size: 1.5rem
       i
         margin: $gap * 0.5
@@ -222,13 +224,13 @@
         font-size: $fontsize-meta
       &.active
         i, i+p
-          color: $color-theme
+          color: var(--color-theme)
         img+p
-          color: $color-site-inner
-        background: $color-card
+          color: var(--color-text)
+        background: var(--color-card)
         backdrop-filter: none
       &:hover
-        background: $color-card
+        background: var(--color-card)
 
 
 .cover-wrapper.dock .top
@@ -237,6 +239,7 @@
   background: alpha($color-card, .5)
   position: absolute
   bottom: 0
+  max-width: 100%
   .list-h
     flex-wrap: nowrap
     margin: 4px
@@ -272,5 +275,4 @@
     margin: 2px
     &:hover
       opacity: 1
-      background: $color-card
-/*  &:hover
+      background: var(--color-card)
