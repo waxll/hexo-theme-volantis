@@ -17,10 +17,10 @@
       border-left: $border-line solid transparent
       &.active
         list_active()
-        border-left: $border-line solid var(--color-theme)
+        border-left: $border-line solid $color-theme
       &:hover
         list_hover()
-        border-left: $border-line solid var(--color-theme)
+        border-left: $border-line solid $color-theme
 
 
   trans()
@@ -30,7 +30,7 @@
     max-height: 1000px
     width: auto
     max-width: "calc(100% - 2 * %s)" % $gap
-    top: $navbar-height - $gap * 2
+    top: $navbar-height - $gap
     right: $gap
     border-radius: $border-card * 0.5
     box-shadow: $boxshadow-float

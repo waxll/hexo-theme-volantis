@@ -137,12 +137,12 @@ var customSearch;
 		});
 
 		// bind events to every btn
-		let $commentTarget = $('.l_body .comments');  // 评论区域
+		let $commentTarget = $('.l_body article#comments');  // 评论区域
 		if ($commentTarget.length) {
 			$comment.click(e => {                     // 评论按钮点击后 跳转到评论区域
 				e.preventDefault();
 				e.stopPropagation();
-				scrolltoElement($('.l_body .comments'));
+				scrolltoElement($('.l_body article#comments'));
 				e.stopImmediatePropagation();
 			});
 		} else $comment.remove(); // 关闭了评论，则隐藏
@@ -207,7 +207,9 @@ var customSearch;
 		// PC端 hover时展开子菜单，点击时隐藏子菜单
 		$('.m-pc li > a[href]').parent().click(function (e) {
 			e.stopPropagation();
-			$('.m-pc .list-v').hide();
+			if (e.target.origin == e.target.baseURI) {
+				$('.m-pc .list-v').hide();
+			}
 		});
 		// 手机端 点击展开子菜单
 		$('.m-phone li').click(function (e) {

@@ -28,19 +28,24 @@ function supportCss3(style) {
 };
 //配置信息
 var options = {
-  bottom: '<%- theme.plugins.darkmodejs.bottom %>',
-  right: '<%- theme.plugins.darkmodejs.right %>',
-  left: '<%- theme.plugins.darkmodejs.left %>',
-  time: '<%- theme.plugins.darkmodejs.time %>',
-  mixColor: '<%- theme.plugins.darkmodejs.backgroundColor %>',
-  backgroundColor: '<%- theme.plugins.darkmodejs.backgroundColor %>',
-  buttonColorDark: '<%- theme.plugins.darkmodejs.buttonColorDark %>',
-  buttonColorLight: '<%- theme.plugins.darkmodejs.backgroundColor %>',
+  bottom: '<%- theme.plugins.darkmodejs.button.bottom %>',
+  right: 'unset',
+  left: '<%- theme.plugins.darkmodejs.button.left %>',
+  time: '0s',
+  mixColor: '<%- theme.color_scheme.light.site_bg %>',
+  backgroundColor: '<%- theme.color_scheme.light.site_bg %>',
+  buttonColorDark: '<%- theme.plugins.darkmodejs.button.buttonDark %>',
+  buttonColorLight: '<%- theme.plugins.darkmodejs.button.buttonLight %>',
   saveInCookies: true,
-  label: '<%- theme.plugins.darkmodejs.label %>',
+  label: '',
   autoMatchOsTheme: true
 };
-// 卡片兼容处理 mix-blend-mode 与 effect: [shadow, floatable, blur] 冲突???
+// 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
+<%
+if (theme.plugins.backstretch.enable && (theme.plugins.backstretch.position == 'fixed')) {
+	theme.plugins.darkmodejs.compatible=false;
+}
+%>
 function pjax_darkmodejs(){
   <% if (theme.plugins.darkmodejs.compatible) { %>
   if(!supportCss3('mix-blend-mode'))return;
@@ -52,7 +57,7 @@ function pjax_darkmodejs(){
       var top = $(document).scrollTop();
       if(top > TopFlag) {
         $(".darkmode-layer").css("mix-blend-mode","normal");
-        $(".darkmode-layer").css("background-color","#000");
+        $(".darkmode-layer").css("background-color","<%- theme.color_scheme.dark.site_bg %>");
       }else{
         $(".darkmode-layer").css("mix-blend-mode","difference");
         $(".darkmode-layer").css("background-color","");
@@ -63,8 +68,16 @@ function pjax_darkmodejs(){
 }
 // mix-blend-mode support?
 if(supportCss3('mix-blend-mode')){
-  const darkmode = new Darkmode(options);
-  darkmode.showWidget();
+  window.darkmode = new Darkmode(options);
+  <% if (theme.plugins.darkmodejs.button.enable) { %>
+  window.darkmode.showWidget();
+  <% } %>
   pjax_darkmodejs();
 }
+////////////////Development///////////////////////
+//////////////darkmode模式切换////////////////////
+//window.darkmode.toggle();                     //
+//////////////darkmode模式判断////////////////////
+//console.log(window.darkmode.isActivated())    //
+//////////////////////////////////////////////////
 </script>
