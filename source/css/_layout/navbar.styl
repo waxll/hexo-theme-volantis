@@ -34,7 +34,6 @@
     .nav-sub
       trans()
       opacity: 0
-      height: $navbar-height
       width: "calc(100% - 2 * %s)" % $gap
       position: absolute
       @media screen and (min-width: $device-2k)
@@ -99,12 +98,12 @@
         border-radius: 100px
         border: none
         trans()
-        color: $color-theme
+        color: var(--color-theme)
         &:hover
           border: none
         &.active,&:active
           border: none
-          background: var(--color-site-bg)
+          background: bgcolor($color-theme)
         @media screen and (max-width: $device-mobile)
           width: $iconW
           height: $height
@@ -149,7 +148,7 @@
       position: absolute
       width: $iconW
       left: $iconMargin + 1px
-      color: var(--color-meta)
+      color: alpha($color-text, 70%)
       @media screen and (max-width: $device-mobile)
         display: none
     .input
@@ -196,31 +195,25 @@
         .input
           width: "calc(100% - %s)" % (3 * $gap + 2 * $iconW)
 
-ul.m-pc
-  >li>a
-    color: inherit
-    border-bottom: 2px solid transparent
-    &:active,&.active
-      border-bottom: 2px solid $color-theme
 ul.m-pc,ul.list-v
   li:hover
     >ul.list-v
       display: block
 
-
 ul.nav-list-h
   display: flex
   align-items: stretch
+  height: $navbar-height
   &>li
     position: relative
     justify-content: center
-    height: 100%
-    line-height: 2.4
-    border-radius: $border-button
     >a
+      height: 100%
       -webkit-font-smoothing: antialiased
       -moz-osx-font-smoothing: grayscale
       font-weight: 600
+      line-height: $navbar-height
+      border-bottom: $border-line solid transparent
 
 ul.list-v
   z-index: 1
@@ -257,7 +250,7 @@ ul.list-v
   >li>a
     trans()
     display: block
-    color: var(--color-list)
+    color: mix($color-text, $color-card, 80)
     font-size: $fontsize-meta
     font-weight: bold
     line-height: 36px
@@ -269,7 +262,12 @@ ul.list-v
     border-radius: 4px
     >i
       margin-right: 8px
+    &.current
+      border-left-color: alpha($color-theme, 80%)
+      border-bottom-color: alpha($color-theme, 80%)
     &:active,&.active
+      border-left-color: var(--color-theme)
+      border-bottom-color: var(--color-theme)
       list_active()
     &:hover
       list_hover()
@@ -282,15 +280,20 @@ ul.list-v
       >i
         margin-right: 4px
 
-.l_header ul.nav-list-h>li
-  color: var(--color-list)
-  line-height: $navbar-height - 2px
-  >a
-    color: inherit
-    &:active,&.active
-      color: $color-theme
-  &:hover>a
-    color: var(--color-list-hl)
+.l_header ul.nav-list-h>li>a
+  color: mix($color-text, $color-card, 80)
+  &.current
+    border-left-color: alpha($color-theme, 80%)
+    border-bottom-color: alpha($color-theme, 80%)
+  &:active,&.active
+    color: var(--color-theme)
+    border-left-color: var(--color-theme)
+    border-bottom-color: var(--color-theme)
+  &:hover
+    color: mix($color-theme, $color-text, 70)
+    border-left-color: var(--color-theme)
+    border-bottom-color: var(--color-theme)
+    background: bgcolor($color-theme)
   i.music
     animation: rotate-effect 1.5s linear infinite
     @keyframes rotate-effect
@@ -312,7 +315,7 @@ ul.list-v
     right: "calc(100% - 0.5 * %s)" % $gap
 
 .l_header .wrapper
-  if hexo-config('custom_css.navbar.width') == 'auto'
+  if hexo-config('style.navbar.width') == 'auto'
     max-width: $layout-width
     margin: auto
     @media screen and (min-width: $device-2k)
@@ -354,7 +357,7 @@ ul.list-v
 
 
 .l_header
-  if hexo-config('custom_css.navbar.width') == 'auto'
+  if hexo-config('style.navbar.width') == 'auto'
     max-width: 65vw
     left: "calc((100% - %s) * 0.5)" % @max-width
     border-bottom-left-radius: $border-card

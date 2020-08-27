@@ -29,10 +29,12 @@ Open the terminal and execute the following command:
 git clone https://github.com/volantis-x/demo.git && cd demo && npm i && hexo s
 ```
 
-Does the result work normally? The test result is: A or B
+Does the result work normally?
 
-- [ ] A. It can run normally, it means there is no problem with the theme and current environment configuration.
-- [ ] B. It does not work normally, it means there is a problem with the theme or environment configuration. It is recommended to attach environment configuration information in the corresponding position below.
+A. It can run normally, it means there is no problem with the theme and current environment configuration.
+B. It does not work normally, it means there is a problem with the theme or environment configuration. It is recommended to attach environment configuration information in the corresponding position below.
+
+- [ ] The test result is: A or B
 
 ## Describe your problem
 
@@ -43,10 +45,6 @@ Does the result work normally? The test result is: A or B
 
 ### URL
 <!-- If there is an abnormality in the local operation using the source code of the official website of the document, you do not need to provide a the URL. -->
-
-- [ ] There is an exception in the local operation of the official source code of the document.
-- [ ] There is no exception in the local operation of the official source code of the document. Please give the duplicate address and source code repository address _________________
-
 
 ### Screenshots
 <!-- Different systems and browsers may have different effects. Provide screenshots to help find problems. -->
@@ -64,39 +62,23 @@ Does the result work normally? The test result is: A or B
 <details><summary>Configuration Files</summary>
 
 #### Site Config
-
-Paste here the modified part in `blog/_config.yml`
-
 ```yml
-
-
+Paste here the modified part in `blog/_config.yml`
 ```
 
 #### Theme Config
-
-Paste here the modified part in `themes/volantis/_config.yml`
-
 ```yml
-
-
+Paste here the modified part in `themes/volantis/_config.yml`
 ```
 
 #### node.js & npm
-
-Paste the output by `node -v && npm -v`
-
 ```
-
-
+Paste the output by `node -v && npm -v`
 ```
 
 #### package.json
-
-Paste the output by `npm ls --depth 0` here
-
 ```
-
-
+Paste the output by `npm ls --depth 0` here
 ```
 
 </details>
