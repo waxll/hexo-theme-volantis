@@ -1,12 +1,46 @@
 :root
-  --color-site-bg: $color-site-bg
+  --color-md-red: $color-md-red
+  --color-md-pink: $color-md-pink
+  --color-md-purple: $color-md-purple
+  --color-md-deep-purple: $color-md-deep-purple
+  --color-md-indigo: $color-md-indigo
+  --color-md-light-blue: $color-md-light-blue
+  --color-md-blue: $color-md-blue
+  --color-md-deep-blue: $color-md-deep-blue
+  --color-md-teal: $color-md-teal
+  --color-md-green: $color-md-green
+  --color-md-light-green: $color-md-light-green
+  --color-md-orange: $color-md-orange
+  --color-md-deep-orange: $color-md-deep-orange
+  --color-md-brown: $color-md-brown
+  --color-md-blue-grey: $color-md-blue-grey
+  --color-md-grey: $color-md-grey
+  --color-md-light-grey: $color-md-light-grey
+  --color-md-yellow: $color-md-yellow
+  --color-md-amber: $color-md-amber
+  --color-mac-cyan: $color-mac-cyan
+  --color-mac-green: $color-mac-green
+  --color-mac-yellow: $color-mac-yellow
+  --color-mac-red: $color-mac-red
+  --color-google-blue: $color-google-blue
+  --color-google-green: $color-google-green
+  --color-google-yellow: $color-google-yellow
+  --color-google-red: $color-google-red
+  --color-site: $color-site
   --color-site-inner: $color-site-inner
   --color-site-footer: $color-site-footer
   --color-card: $color-card
   --color-text: $color-text
+  --color-theme: $color-theme
+  --color-link: $color-link
+  --color-button: $color-button
+  --color-hover: $color-hover
+  --color-inner: $color-inner
   --color-block: $color-block
+  --color-selection: $color-selection
   --color-inlinecode: $color-inlinecode
   --color-codeblock: $color-codeblock
+  --color-mathjax: $color-mathjax
   --color-h1: $color-h1
   --color-h2: $color-h2
   --color-h3: $color-h3
@@ -14,9 +48,8 @@
   --color-h5: $color-h5
   --color-h6: $color-h6
   --color-p: $color-p
-  --color-list: $color-list
-  --color-list-hl: $color-list-hl
   --color-meta: $color-meta
+  --color-list: $color-list
 
 *
   box-sizing: border-box
@@ -31,11 +64,11 @@ html
   font-family: $fontfamily
   font-size: $fontsize-body
   >
-    if hexo-config('custom_css.scrollbar.size')
-      scrollbar(convert(hexo-config('custom_css.scrollbar.size')), convert(hexo-config('custom_css.scrollbar.border')) || 0px)
+    if hexo-config('style.scrollbar.size')
+      scrollbar(convert(hexo-config('style.scrollbar.size')), convert(hexo-config('style.scrollbar.border')) || 0px)
 
 body
-  background-color: var(--color-site-bg)
+  background-color: var(--color-site)
   text-rendering: optimizelegibility
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
   line-height: $lineheight
@@ -53,11 +86,11 @@ body
 
 
 ::-moz-selection {
-  background: $color-selection
+  background: var(--color-selection)
 }
 
 ::selection {
-  background: $color-selection
+  background: var(--color-selection)
 }
 
 
@@ -78,12 +111,12 @@ h1,h2,h3,h4,h6
   font-weight: normal
 
 a
-  color: $color-link
+  color: var(--color-link)
   cursor: pointer
   text-decoration: none
   trans()
   &:hover
-    color: $color-hover
+    color: var(--color-hover)
   &:active,&:hover
     outline: 0
   &:not([href])

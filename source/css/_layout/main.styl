@@ -1,8 +1,8 @@
 .safearea
-  margin: $gap $gap 0
+  margin: $gap
 .l_body
   position: relative
-  if hexo-config('custom_css.font_smoothing') == true
+  if hexo-config('style.font_smoothing') == true
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
   div.loading
@@ -31,14 +31,14 @@
     &.show
       transform: translateY(0) scale(1)
       &.hl
-        background: $color-theme
-        color: $color-inner
+        background: var(--color-theme)
+        color: var(--color-inner)
         box-shadow: $boxshadow-card
     @media screen and (min-width: $device-tablet)
       &:hover
         transform: scale(1.2)
         border-radius: 25%
-        background: $color-theme
+        background: var(--color-theme)
         color: white
         box-shadow: $boxshadow-card-float
         &.hl
@@ -145,7 +145,7 @@
           text-decoration: none
           font-size: $fontsize-h1
           &:hover
-            color: $color-hover
+            color: var(--color-hover)
     .article-meta
       color: var(--color-meta)
       margin-bottom: $gap
@@ -197,6 +197,28 @@
           font-size: $fontsize-code
         .new-meta-item
           color: var(--color-meta)
+          &.link-btns
+            display: flex
+            flex-wrap: wrap
+            justify-content: flex-start
+            .btn
+              color: white
+              padding: 1px 4px
+              border-radius: 2px
+              margin: 2px
+              line-height: 1.5
+              &:hover
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 8px 16px 0 rgba(0, 0, 0, 0.1)
+              i
+                padding-left: 3px
+              p
+                color: white
+                padding-top: 3px
+                padding-right: 2px
+              &:hover
+                color: white
+                p
+                  color: white
           .notlink
             cursor: default
             &:hover
@@ -232,9 +254,9 @@
               font-weight: normal
               trans()
             &:hover
-              color: $color-hover
+              color: var(--color-hover)
               p
-                color: $color-hover
+                color: var(--color-hover)
 
         .author
           img,i
@@ -323,7 +345,7 @@
 
 
 
-article#comments
+.comments
   .article
     p[ct]
       margin-top: 0
@@ -343,17 +365,17 @@ article#comments
       display: inline-block
       border-radius: 2px
       cursor: pointer
-      background: $color-button
-      color: $color-inner
+      background: var(--color-button)
+      color: var(--color-inner)
       padding-left: $gap * 3
       padding-right: $gap * 3
       &:hover
-        background: $color-hover
+        background: var(--color-hover)
 
 .white-box
   background: var(--color-card)
 
-if hexo-config('plugins.scrollreveal.enable')
+if hexo-config('plugins.scrollreveal.js')
   .reveal
     visibility: hidden
 
@@ -365,7 +387,7 @@ img
       opacity: 0
     &.loaded
       opacity: 1
-    if hexo-config('plugins.lazyload.blurIn') == true
+    if hexo-config('lazyload.blurIn') == true
       transition filter .25s ease-out 0s
       &:not(.loaded)
         filter blur(8px)
